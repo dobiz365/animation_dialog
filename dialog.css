@@ -1,0 +1,127 @@
+.__mask{
+	position:absolute;
+	z-index:554;
+	left:0;
+	top:0;
+	display:none;
+	width:100%;
+	height:100%;
+	background-color:#000;
+	opacity:0.5;
+	filter:alpha(opacity=50);
+}
+
+.__box{
+	border:1px solid #000;
+	position:absolute;
+	width:500px;
+	display:none;
+	z-index:555;
+	background-color:#fff;
+	overflow:hidden;
+}
+.__title{
+	background: rgb(71,72,72); /* Old browsers */
+	background: -moz-linear-gradient(left,  rgba(71,72,72,1) 0%, rgba(112,113,113,1) 45%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(71,72,72,1)), color-stop(45%,rgba(112,113,113,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  rgba(71,72,72,1) 0%,rgba(112,113,113,1) 45%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  rgba(71,72,72,1) 0%,rgba(112,113,113,1) 45%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  rgba(71,72,72,1) 0%,rgba(112,113,113,1) 45%); /* IE10+ */
+	background: linear-gradient(to right,  rgba(71,72,72,1) 0%,rgba(112,113,113,1) 45%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#474848', endColorstr='#707171',GradientType=1 ); /* IE6-9 */
+	color:#fff;
+	font-size:16px;
+	padding:3px 10px;
+	line-height:24px;
+	height:24px;
+}
+.__close_btn{
+	background: rgb(243,185,185); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(243,185,185,1) 0%, rgba(193,76,59,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(243,185,185,1)), color-stop(100%,rgba(193,76,59,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(243,185,185,1) 0%,rgba(193,76,59,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(243,185,185,1) 0%,rgba(193,76,59,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(243,185,185,1) 0%,rgba(193,76,59,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(243,185,185,1) 0%,rgba(193,76,59,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3b9b9', endColorstr='#c14c3b',GradientType=0 ); /* IE6-9 */
+	border:1px solid #DA7778;
+	border-radius:3px;
+	color:#fff;
+	cursor:pointer;
+	font-size:14px;
+	position:absolute;
+	top:3px;
+	right:3px;
+	width:24px;
+	height:24px;
+	padding:3px;	
+	font-family:serif;
+	display:none;
+}
+.__content{
+	padding:8px;
+	line-height:150%;
+}
+.__foot_div{
+	border-top:1px dashed #999;
+	padding:3px;
+	height:30px;
+	position:relative;
+	display:none;
+}
+
+.__btn{
+	background: rgb(255,255,255); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(235,235,235,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(235,235,235,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(235,235,235,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(235,235,235,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(235,235,235,1) 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(235,235,235,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ebebeb',GradientType=0 ); /* IE6-9 */
+	border:1px solid #B8B8B8;
+	border-radius:5px;
+	cursor:pointer;
+	padding:3px 3px 3px 25px;
+}
+
+.__cancel_btn{
+	position:absolute;
+	bottom:5px;
+	left:20px;
+	width:100px;
+	height:26px;
+	display:none;
+}
+.__cancel_btn:before{
+	content:'\2715';
+	display:inline-block;
+	position:absolute;
+	width:18px;
+	height:18px;
+	font-size:14px;
+	line-height:18px;
+	left:5px;
+	top:3px;
+	border-right:1px dashed #bbb;
+}
+.__submit_btn{
+	position:absolute;
+	right:20px;
+	bottom:5px;
+	width:100px;
+	height:26px;
+	display:none;
+}
+.__submit_btn:before{
+	content:'\2713';
+	display:inline-block;
+	position:absolute;
+	width:18px;
+	height:18px;
+	font-size:14px;
+	line-height:18px;
+	left:5px;
+	top:3px;
+	border-right:1px dashed #bbb;
+}

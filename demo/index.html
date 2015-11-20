@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'/>
+<title>
+对话框组件V1.0演示程序
+</title>
+<style>
+.btn{
+	width:200px;
+	height:30px;
+	border:none;
+	background-color:#f00;
+	color:#fff;
+	font-size:14px;
+	cursor:pointer;
+}
+</style>
+<link rel='stylesheet' type='text/css' href='../dialog.css'/>
+<script src='../dialog.js'></script>
+</head>
+<body>
+<h2>对话框组件V1.0演示程序</h2>
+<h3>作者：浙江省新昌县城西小学 唐明 QQ:147885198</h3>
+<div>
+引入方式：
+<textarea style="width:100%;font-size:18px;height:50px;" readonly="readonly">
+<link rel='stylesheet' type='text/css' href='dialog.css'/>
+<script src='dialog.js'></script>
+</textarea>
+
+使用方式：
+<textarea style="width:100%;font-size:18px;height:225px;" readonly="readonly">
+2. 显示HTML内容
+	dialog.options.buttons=['close','ok'];
+	dialog.options.padding=10;
+	dialog.options.width=400;
+	dialog.options.height='auto';
+	dialog.show('发生错误','<h3>数据库发生错误！</h3>');
+3. 显示iframe框架
+	dialog.options.buttons=['close'];
+	dialog.options.padding=0;
+	dialog.showFrame(title,url,width,height);
+</textarea>
+</div>
+<div>
+演示：<br/>
+<button id='open_html_btn' class='btn'>弹出HTML内容</button>
+<button id='open_iframe_btn' class='btn'>弹出iframe内容</button>
+</div>
+<script>
+var dialog=new Dialog({border_radius:10,animation:true,buttons:['close']});
+var open_html_btn=document.getElementById('open_html_btn');
+open_html_btn.onclick=function(){
+	dialog.options.buttons=['close','ok'];
+	dialog.options.padding=10;
+	dialog.options.width=400;
+	dialog.options.height='auto';
+	dialog.show('发生错误','<h3>数据库发生错误！</h3>');
+}
+
+var open_iframe_btn=document.getElementById('open_iframe_btn');
+open_iframe_btn.onclick=function(){
+	dialog.options.buttons=['close'];
+	dialog.options.padding=0;
+	dialog.showFrame('这是我的博客，谢谢观看.','http://www.misitang.com',600,500);
+}
+
+</script>
+</body>
+</html>

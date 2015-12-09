@@ -188,12 +188,14 @@ Dialog.prototype.setButton=function(){
 }
 
 Dialog.prototype.showFrame=function(title,url,width,height){//显示frame网页
-	var frame='<iframe id="__dialog_frame" src="'+url+'" width="'+width+'" height="'+height+'" frameborder="no" border="0" marginwidth="0" marginheight="0" ></iframe>';	
+	var frame='<iframe src="'+url+'" id="__dialog_frame" width="'+width+'" height="'+height+'" frameborder="no" border="0" marginwidth="0" marginheight="0" ></iframe>';	
 	this.options.width=width+this.options.padding*2;	
 	if(this.options.height!='auto'){
 		this.options.height=height+27+this.options.padding*2;
 	}else this.options.height=height;	
 	this.show(title,frame);
+	var ifm= document.getElementById("__dialog_frame");	
+	ifm.src=url;
 }
 
 //取得浏览器窗口大小
@@ -215,6 +217,14 @@ Dialog.prototype.get_document_size=function(){
 	return {width:width,height:height};
 }
 
+//取当前滚动位置
+Dialog.prototype.get_scroll_info=function(){
+	var de=document.documentElement;
+	var x=window.pageXOffset || (de && de.scrollLeft) || document.body.scrollLeft;
+	var y=window.pageYOffset || (de && de.scrollTop) || document.body.scrollTop;
+	return {x:x,y:y};
+}
+	
 Dialog.prototype.show=function(title,content){
 	var self=this;
 	this.setButton();
@@ -297,18 +307,18 @@ Dialog.prototype.setCenter=function(self){
 	if(self==undefined){
 		self=this;
 	}
-	var body=document.getElementsByTagName('body')[0];
 	var win_size=self.get_window_size();
+	var scroll_info=self.get_scroll_info();
 	if(self.options.height=='auto'){
 		//取得高度
 		var size=self.getSize(self.dialog_element);
-		var left=(body.offsetWidth-size.width)/2;
-		var top=body.scrollTop+(win_size.height-size.height)/2;
+		var left=scroll_info.x+(win_size.width-size.width)/2;
+		var top=scroll_info.y+(win_size.height-size.height)/2;
 		self.dialog_element.style.left=left+'px';
 		self.dialog_element.style.top=top+'px';		
 	}else{
-		var left=(body.offsetWidth-self.options.width)/2;
-		var top=body.scrollTop+(win_size.height-self.options.height)/2;
+		var left=scroll_info.x+(win_size.width-self.options.width)/2;
+		var top=scroll_info.y+(win_size.height-self.options.height)/2;
 		self.dialog_element.style.left=left+'px';
 		self.dialog_element.style.top=top+'px';			
 	}

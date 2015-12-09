@@ -82,7 +82,7 @@ function Dialog(opt){
 	var self=this;
 	
 	this.dialog_modal=document.createElement('div');
-	this.dialog_modal.className='__mask';
+	this.dialog_modal.className='tm__mask';
 	
 	var screen_height=window.innerHeight || (document.documentElement && document.documentElement.clientHeight) || document.body.clientHeight;
 	var screen_width=window.innerWidth || (document.documentElement && document.documentElement.clientWidth) || document.body.clientWidth;
@@ -93,31 +93,31 @@ function Dialog(opt){
 	this.dialog_modal.style.height=doc_height>screen_height?doc_height:screen_height;
 	
 	this.dialog_title=document.createElement('div');
-	this.dialog_title.className='__title';
+	this.dialog_title.className='tm__title';
 	this.dialog_title.innerHTML=this.options.title;
 	
 	this.dialog_close_btn=document.createElement('button');
-	this.dialog_close_btn.className='__close_btn';
+	this.dialog_close_btn.className='tm__close_btn';
 	this.dialog_close_btn.innerHTML='&#10005;';
 	
 	this.dialog_content=document.createElement('div');
-	this.dialog_content.className='__content';
+	this.dialog_content.className='tm__content';
 	this.dialog_content.innerHTML=this.options.content;
 	this.dialog_content.style.padding=this.options.padding+'px';
 	
 	this.dialog_button_div=document.createElement('div');
-	this.dialog_button_div.className='__foot_div';
+	this.dialog_button_div.className='tm__foot_div';
 	
 	this.dialog_cancel_button=document.createElement('button');
-	this.dialog_cancel_button.className='__btn __cancel_btn';
+	this.dialog_cancel_button.className='tm__btn __cancel_btn';
 	this.dialog_cancel_button.innerHTML='取消';
 	
 	this.dialog_ok_button=document.createElement('button');
-	this.dialog_ok_button.className='__btn __submit_btn';
+	this.dialog_ok_button.className='tm__btn __submit_btn';
 	this.dialog_ok_button.innerHTML='确定';
 				
 	this.dialog_element=document.createElement('div');
-	this.dialog_element.className='__box';
+	this.dialog_element.className='tm__box';
 	this.dialog_element.style.width=this.options.width+'px';
 	if(this.options.border_radius>0)
 		this.dialog_element.style.borderRadius=this.options.border_radius+'px';
@@ -196,13 +196,23 @@ Dialog.prototype.showFrame=function(title,url,width,height){//显示frame网页
 	this.show(title,frame);
 }
 
+//取得浏览器窗口大小
+Dialog.prototype.get_window_size=function(){
+		var de=document.documentElement;
+		var h=window.innerHeight || (de && de.clientHeight) || document.body.clientHeight;
+		var w=window.innerWidth || (de && de.clientWidtht) || document.body.clientWidth;
+		return {width:w,height:h};
+		
+}
+	
 //取得文档高度>=window.height
-Dialog.prototype.get_document_height=function(){
-	var height=0;
-	if(window.innerHeight){
-		height=window.innerHeight;
-	}
-	return document.body.offsetHeight>height?document.body.offsetHeight:height;
+Dialog.prototype.get_document_size=function(){
+	var width=document.body.scrollWidth;
+	var height=document.body.scrollHeight;
+	var wsize=this.get_window_size();
+	width=wsize.width>width?wsize.width:width;
+	height=wsize.height>height?wsize.height:height;
+	return {width:width,height:height};
 }
 
 Dialog.prototype.show=function(title,content){
@@ -224,10 +234,10 @@ Dialog.prototype.show=function(title,content){
 				self.setCenter(self);
 			});	
 	}
-
+	var doc_size=self.get_document_size();
 	this.dialog_element.style.width=this.options.width+'px';	
-	if(this.options.modal){		
-		self.dialog_modal.style.height=self.get_document_height()+'px';
+	if(this.options.modal){
+		self.dialog_modal.style.height=doc_size.height+'px';
 		self.dialog_modal.style.display='block';
 	}
 	this.dialog_element.style.display='block';
@@ -282,14 +292,6 @@ if (humpString[i] in htmlStyle) return true;
 return false; 
 }
 
-//取得浏览器窗口大小
-Dialog.prototype.get_window_size=function(){
-	if(window.innerWidth){
-		return {width:window.innerWidth,height:window.innerHeight};
-	}
-	var B= document.body, D= document.documentElement;
-    return {width:Math.min(D.clientWidth, B.clientWidth),height:Math.min(D.clientHeight, B.clientHeight)};
-}
 //设置居中
 Dialog.prototype.setCenter=function(self){
 	if(self==undefined){

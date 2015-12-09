@@ -1,4 +1,4 @@
-.__mask{
+.tm__mask{
 	position:absolute;
 	z-index:554;
 	left:0;
@@ -11,7 +11,7 @@
 	filter:alpha(opacity=50);
 }
 
-.__box{
+.tm__box{
 	border:1px solid #000;
 	position:absolute;
 	width:500px;
@@ -20,7 +20,7 @@
 	background-color:#fff;
 	overflow:hidden;
 }
-.__title{
+.tm__title{
 	background: rgb(71,72,72); /* Old browsers */
 	background: -moz-linear-gradient(left,  rgba(71,72,72,1) 0%, rgba(112,113,113,1) 45%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(71,72,72,1)), color-stop(45%,rgba(112,113,113,1))); /* Chrome,Safari4+ */
@@ -35,7 +35,7 @@
 	line-height:24px;
 	height:24px;
 }
-.__close_btn{
+.tm__close_btn{
 	background: rgb(243,185,185); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(243,185,185,1) 0%, rgba(193,76,59,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(243,185,185,1)), color-stop(100%,rgba(193,76,59,1))); /* Chrome,Safari4+ */
@@ -58,11 +58,11 @@
 	font-family:serif;
 	display:none;
 }
-.__content{
+.tm__content{
 	padding:8px;
 	line-height:150%;
 }
-.__foot_div{
+.tm__foot_div{
 	border-top:1px dashed #999;
 	padding:3px;
 	height:30px;
@@ -70,7 +70,7 @@
 	display:none;
 }
 
-.__btn{
+.tm__btn{
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(235,235,235,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(235,235,235,1))); /* Chrome,Safari4+ */
@@ -85,7 +85,7 @@
 	padding:3px 3px 3px 25px;
 }
 
-.__cancel_btn{
+.tm__cancel_btn{
 	position:absolute;
 	bottom:5px;
 	left:20px;
@@ -93,7 +93,7 @@
 	height:26px;
 	display:none;
 }
-.__cancel_btn:before{
+.tm__cancel_btn:before{
 	content:'\2715';
 	display:inline-block;
 	position:absolute;
@@ -105,7 +105,7 @@
 	top:3px;
 	border-right:1px dashed #bbb;
 }
-.__submit_btn{
+.tm__submit_btn{
 	position:absolute;
 	right:20px;
 	bottom:5px;
@@ -113,7 +113,7 @@
 	height:26px;
 	display:none;
 }
-.__submit_btn:before{
+.tm__submit_btn:before{
 	content:'\2713';
 	display:inline-block;
 	position:absolute;
